@@ -39,3 +39,4 @@ thop  # FLOPs computation
 # roboflow
 plotly
 time
+azure-cognitiveservices-vision-computervision
