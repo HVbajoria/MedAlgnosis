@@ -1,13 +1,7 @@
 import streamlit as st
-from PIL import Image
-import numpy as np
-import plotly.express as px
-import pandas as pd
-import math
 import time
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 from msrest.authentication import ApiKeyCredentials
-import os
 import requests
 
 # Replace with your endpoint and prediction key

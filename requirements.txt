@@ -4,11 +4,6 @@ numpy
 opencv-python
 Pillow
 requests
-scipy
-torch
 
-# Plotting ------------------------------------
-pandas>=1.1.4
-seaborn>=0.11.0
 time
 azure-cognitiveservices-vision-computervision

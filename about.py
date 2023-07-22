@@ -1,11 +1,6 @@
 import streamlit as st
-import torch
-from PIL import Image
-import numpy as np
-import plotly.express as px
-import math
+
 from streamlit_extras.switch_page_button import switch_page
-import time
 st.set_page_config(page_title="MedAIgnosis: TumorTeller", page_icon="💊", layout="wide")
 st.markdown(
     """
