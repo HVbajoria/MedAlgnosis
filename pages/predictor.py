@@ -8,10 +8,11 @@ import time
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 from msrest.authentication import ApiKeyCredentials
 import os
+import requests
 
 # Replace with your endpoint and prediction key
-ENDPOINT = "https://centralindia.api.cognitive.microsoft.com/"
-PREDICTION_KEY = "ffdfbeeee3664a1896aa952151e7ad5c"
+ENDPOINT = st.secrets["ENDPOINT"]
+PREDICTION_KEY = st.secrets["PREDICTION_KEY"]
 
 # Create a prediction client
 credentials = ApiKeyCredentials(in_headers={"Prediction-key": PREDICTION_KEY})
@@ -38,8 +39,6 @@ doctors = [
     # Add more doctors here...
 ]
 
-import requests
-
 def book_appointment(doctor_name, patient_email, patient_name):
     # Add your booking logic here, e.g., database integration, etc.
 
@@ -58,8 +57,7 @@ def book_appointment(doctor_name, patient_email, patient_name):
 
 def send_confirmation_email(patient_email, doctor_name,patient_name):
    # Replace 'your_azure_logic_app_url' with the URL of your Azure logic app to send appointment emails
-    azure_logic_app_url = f'https://prod-25.centralindia.logic.azure.com:443/workflows/8bf3ac65d7494e57a5d5a962a911c26b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_3IMpPWOPBMCwadMtMbgYyUI4quc3K4_7dwC7zpf-xk'
-
+    azure_logic_app_url = st.secrets["azure_logic_app_url"]
 
     email_data = {
         "to": patient_email,
@@ -78,8 +76,7 @@ def send_confirmation_email(patient_email, doctor_name,patient_name):
 
 def send_appointment_email(doctor_email, patient_email, doctor_name, patient_name):
     # Replace 'your_azure_logic_app_url' with the URL of your Azure logic app to send appointment emails
-    azure_logic_app_url = f'https://prod-25.centralindia.logic.azure.com:443/workflows/8bf3ac65d7494e57a5d5a962a911c26b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_3IMpPWOPBMCwadMtMbgYyUI4quc3K4_7dwC7zpf-xk'
-
+    azure_logic_app_url = st.secrets["azure_logic_app_url"]
 
     email_data = {
         "to": doctor_email,
