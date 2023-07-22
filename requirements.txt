@@ -4,6 +4,6 @@ numpy
 opencv-python
 Pillow
 requests
-
+streamlit
 time
 azure-cognitiveservices-vision-computervision
