@@ -20,6 +20,119 @@ predictor = CustomVisionPredictionClient(ENDPOINT, credentials)
 st.set_page_config(page_title="MedAIgnosis: TumorTeller App")
 # dengue fever
 
+doctors = [
+    {
+        "name": "Dr. Harshavardhan Bajoria",
+        "specialization": "Oncologist",
+        "location": "Kolkata",
+        "available_days": "Mon, Tue, Fri",
+        "contact": "hvbajoria@hotmail.com",
+    },
+    {
+        "name": "Dr. Tanisha Agarwal",
+        "specialization": "Oncologist",
+        "location": "Delhi",
+        "available_days": "Wed, Thu, Sat",
+        "contact": "agtanisha.04@gmail.com",
+    },
+    # Add more doctors here...
+]
+
+import requests
+
+def book_appointment(doctor_name, patient_email, patient_name):
+    # Add your booking logic here, e.g., database integration, etc.
+
+
+    # Send confirmation email to the patient
+    send_confirmation_email(patient_email, doctor_name, patient_name)
+
+
+    # Send appointment email to the doctor
+    doctor_email = get_doctor_email(doctor_name)
+    send_appointment_email(doctor_email, patient_email, doctor_name, patient_name)
+
+
+    st.success(f"Appointment booked with {doctor_name}. You will be contacted soon!")
+
+
+def send_confirmation_email(patient_email, doctor_name,patient_name):
+   # Replace 'your_azure_logic_app_url' with the URL of your Azure logic app to send appointment emails
+    azure_logic_app_url = f'https://prod-25.centralindia.logic.azure.com:443/workflows/8bf3ac65d7494e57a5d5a962a911c26b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_3IMpPWOPBMCwadMtMbgYyUI4quc3K4_7dwC7zpf-xk'
+
+
+    email_data = {
+        "to": patient_email,
+         "name": patient_name,
+        "subject": "Appointment Confirmed at MedoAlgnosis",
+        "content": f"Your appointment with {doctor_name} has been booked successfully. You will be contacted soon.",
+    }
+
+
+    response = requests.post(azure_logic_app_url, json=email_data)
+    if response.status_code == 200 or response.status_code == 202:
+        st.success("Confirmation email sent to the patient.")
+    else:
+        st.error("Failed to send confirmation email.")
+
+
+def send_appointment_email(doctor_email, patient_email, doctor_name, patient_name):
+    # Replace 'your_azure_logic_app_url' with the URL of your Azure logic app to send appointment emails
+    azure_logic_app_url = f'https://prod-25.centralindia.logic.azure.com:443/workflows/8bf3ac65d7494e57a5d5a962a911c26b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_3IMpPWOPBMCwadMtMbgYyUI4quc3K4_7dwC7zpf-xk'
+
+
+    email_data = {
+        "to": doctor_email,
+        "name": doctor_name,
+        "subject": "New Appointment at MedAlgonosis",
+        "content": f"A new appointment has been booked with you by {patient_name}. \n More details will be shared soon.",
+    }
+
+
+    response = requests.post(azure_logic_app_url, json=email_data)
+    if response.status_code == 200 or response.status_code == 202:
+        st.success("Appointment email sent to the doctor.")
+    else:
+        st.error("Failed to send appointment email.")
+
+
+def get_doctor_email(doctor_name):
+    # Replace this function with a method to retrieve the doctor's email from your database or list
+    # In this example, we'll assume the email is stored in the 'contact' field of the doctor's details.
+    for doctor in doctors:
+        if doctor["name"] == doctor_name:
+            return doctor["contact"]
+
+
+def doctor():
+    st.write("Select a doctor to view details and book an appointment:")
+    selected_doctor = st.selectbox("Select a doctor", [doctor["name"] for doctor in doctors])
+
+
+    # Add an input field for the patient's email
+    patient_email = st.text_input("Enter your email", "")
+    patient_name = st.text_input("Enter your name", "")
+
+
+    if st.button("Book Appointment"):
+        if not patient_email:
+            st.warning("Please enter your email.")
+        if not patient_name:
+            st.warning("Please enter your name.")
+        else:
+            book_appointment(selected_doctor, patient_email, patient_name)
+
+
+    for doctor in doctors:
+        if doctor["name"] == selected_doctor:
+            st.subheader(doctor["name"])
+            st.write(f"Specialization: {doctor['specialization']}")
+            st.write(f"Location: {doctor['location']}")
+            st.write(f"Available Days: {doctor['available_days']}")
+
+
+
+
 gcauses = """
 The exact causes of glioma, a type of brain tumor, are not fully understood. However, certain risk factors have been identified. These include exposure to ionizing radiation, a family history of glioma, and certain genetic disorders such as neurofibromatosis type 1 and Li-Fraumeni syndrome. While these factors may increase the risk, in many cases, the underlying cause of glioma remains unknown.
 """
@@ -130,6 +243,8 @@ if image is not None:
                 st.write(
                     "More Info can be found on the [Mayo clinic website](https://www.mayoclinic.org/diseases-conditions/glioma/symptoms-causes/syc-20350251)"
                 )
+            doctor()
+
         elif (
             name == "Meningioma"
         ):
@@ -158,6 +273,8 @@ if image is not None:
                 st.write(
                     "More Info can be found on the [Cancer Website](https://www.cancer.gov/rare-brain-spine-tumor/tumors/meningioma)"
                 )
+            doctor()
+
         elif name == "Pituitary":
             st.write(
                 """
@@ -184,5 +301,8 @@ if image is not None:
                 st.write(
                     "More Info can be found on the [MAYO clinic website](https://www.mayoclinic.org/diseases-conditions/pituitary-tumors/symptoms-causes/syc-20350548)"
                 )
+            doctor()
+
     else:
         st.text("No disease detected")
+    
