@@ -1,9 +1,9 @@
-
+--upgrade pip
+streamlit
 matplotlib
+azure-cognitiveservices-vision-computervision
 numpy
 opencv-python
 Pillow
 requests
-streamlit
 time
-azure-cognitiveservices-vision-computervision
