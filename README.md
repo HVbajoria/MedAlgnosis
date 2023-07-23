@@ -36,13 +36,9 @@ Creating a brighter future for brain health by leveraging cutting-edge technolog
 The existing methods of diagnosing brain tumors through MRI scans often involve time-consuming and error-prone manual analysis by medical professionals. Additionally, there is a need for a secure and privacy-centric approach to handling sensitive patient data during the diagnostic process. The key points of the problem statement are as follows:
 
 * **Manual MRI Analysis**: Current methods for diagnosing brain tumors using MRI scans rely heavily on manual analysis by medical experts. This process can be time-consuming, leading to delays in diagnosis and treatment planning.
-
 * **Accuracy and Efficiency**: There is a demand for a more accurate and efficient tumor identification process to enable early detection and timely intervention, which significantly impacts patient outcomes and survival rates.
-
 * **Lack of Comprehensive Information**: Patients often receive limited information about their specific brain tumor type, its characteristics, potential risks, and treatment options. Providing comprehensive insights is essential for informed decision-making and patient empowerment.
-
 * **Data Privacy Concerns**: With increasing concerns about data privacy and security in healthcare, there is a critical need to ensure that patient data, including MRI scans, is handled securely and not stored for privacy reasons.
-
 * **Streamlining Appointment Booking**: The current process of booking appointments with specialized doctors can be cumbersome and inefficient. An integrated system that facilitates seamless appointment scheduling and communication is essential for patient convenience.
 
 ## Solution: 💡 
@@ -51,7 +47,7 @@ In light of these challenges, **Medalgnosis** aims to create an intelligent and 
 * Medalgnosis is an innovative medical software application designed to revolutionize brain tumor diagnosis through AI-driven MRI analysis.
 * Leveraging **Azure Custom Vision's** pre-trained machine learning model, the app accurately identifies Meningioma, Glioma, and Pituitary tumors from uploaded MRI scans.
 * The platform ensures privacy by not storing any user data or MRI scans, safeguarding sensitive medical information through **Streamlit**.
-* With a user-friendly interface build using **Streamlit**, patients can easily upload MRI scans and receive rapid and precise tumor identification results.
+* With a user-friendly interface built using **Streamlit**, patients can easily upload MRI scans and receive rapid and precise tumor identification results.
 * Detailed insights about the detected tumor, including its characteristics, causes, effects, and potential treatments, are provided to enable informed decision-making.
 * Personalized treatment recommendations based on the tumor type and stage empower patients to make the best healthcare choices.
 * Medalgnosis streamlines appointment booking with specialized doctors through its integrated **Azure Logic App**, facilitating seamless communication.
@@ -62,13 +58,13 @@ The following tech stacks have been used to create the application and deploy it
 * **Python** to build the application.
 * **Streamlit** to create a responsive web application along with widgets. 
 * **Streamlit Community Cloud** to deploy the web application for anyone across the globe to access it. 
-* **Microsoft Azure AI Custom Vision** to get a computer vision model trained using our dataset and use it to predict the tumor type with the patients MRI scan. 
+* **Microsoft Azure AI Custom Vision** to get a computer vision model trained using our dataset and use it to predict the tumor type with the patient's MRI scan. 
 * **Microsoft Azure Logic App** to send emails to the patient, doctor on appointment booking. 
 * **GitHub** to host the source code, use the version control (collaboration history), pull requests and GitHub collaboration features to build efficiently with the teammates. It helps a lot to understand the changes and go back and forth if required to complete the software. 
 
 ## Methodology: 
 <p align="center">
-<img src="https://ipfs.io/ipfs/bafybeig52lcisljlswj2x6tujpz7bkd4fz52wd5zhd2dotg67jocrkaz6e/1_20230723_045304_0000.png" width="650" alt="Logo" >
+<img src="https://ipfs.io/ipfs/bafybeig52lcisljlswj2x6tujpz7bkd4fz52wd5zhd2dotg67jocrkaz6e/1_20230723_045304_0000.png" width="650" alt="Methodology" >
   </p>
 </br>
 
