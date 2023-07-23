@@ -63,12 +63,12 @@ The following tech stacks have been used to create the application and deploy it
 * **Streamlit** to create a responsive web application along with widgets. 
 * **Streamlit Community Cloud** to deploy the web application for anyone across the globe to access it. 
 * **Microsoft Azure AI Custom Vision** to get a computer vision model trained using our dataset and use it to predict the tumor type with the patients MRI scan. 
-* **Microsoft Azure Logic App** to send email to the patient, doctor on appointment booking. 
-* **GitHub** to host the source code, use the version control (collaboration history), pull requests and GitHub collaboration features to build efficiently with the teammates. It helps a lot to understand the changes, and go back and forth if required to complete the software. 
+* **Microsoft Azure Logic App** to send emails to the patient, doctor on appointment booking. 
+* **GitHub** to host the source code, use the version control (collaboration history), pull requests and GitHub collaboration features to build efficiently with the teammates. It helps a lot to understand the changes and go back and forth if required to complete the software. 
 
 ## Methodology: 
 <p align="center">
-<img src="https://ipfs.io/ipfs/bafybeig52lcisljlswj2x6tujpz7bkd4fz52wd5zhd2dotg67jocrkaz6e/1_20230723_045304_0000.png" width="250" alt="Logo" >
+<img src="https://ipfs.io/ipfs/bafybeig52lcisljlswj2x6tujpz7bkd4fz52wd5zhd2dotg67jocrkaz6e/1_20230723_045304_0000.png" width="650" alt="Logo" >
   </p>
 </br>
 
@@ -95,7 +95,7 @@ cd MedAlgnosis
 pip install -r requirements.txt
 ```
 * Replace the endpoint and key with your Azure Custom Vision model resource endpoint and key in predictor.py. 
-* Replace the logic app url with the Azure logic app url of the trigger in predictor.py.
+* Replace the logic app URL with the Azure logic app URL of the trigger in predictor.py.
 * Run the application
 ```bash
 streamlit run about.py
@@ -112,7 +112,7 @@ streamlit run about.py
 * **Empowering Informed Decision-Making:** By providing comprehensive tumor insights and personalized treatment recommendations, Medalgnosis empowers patients to actively participate in their healthcare journey. Informed patients can collaborate more effectively with medical professionals, leading to better treatment adherence and improved patient satisfaction.
 * **Privacy-Centric Approach:** Medalgnosis sets a new standard for data privacy in medical applications. Its commitment to not storing any user data or MRI scans ensures patient information remains secure, addressing concerns about data breaches and confidentiality in healthcare.
 * **Time-Efficient Diagnosis:** The use of AI-driven MRI analysis significantly reduces the time required for tumor identification compared to traditional manual methods. Expedited diagnosis allows medical professionals to make timely treatment decisions, potentially leading to improved patient outcomes and reduced healthcare costs.
-* **Encouraging Early Detection:** Early detection of brain tumors is critical for successful treatment and increased survival rates. Medalgnosis' accurate and efficient identification of tumor types facilitates early intervention, potentially saving lives and improving long-term prognosis for patients.
+* **Encouraging Early Detection:** Early detection of brain tumors is critical for successful treatment and increased survival rates. Medalgnosis' accurate and efficient identification of tumor types facilitates early intervention, potentially saving lives and improving the long-term prognosis for patients.
 * **Promoting Medical Advancement:** The integration of Azure Custom Vision's pre-trained machine learning model into Medalgnosis represents a novel approach in the field of medical imaging and diagnosis. This innovation showcases the potential for AI technology to revolutionize healthcare practices and contribute to ongoing medical advancements.
 * **Improved Healthcare Collaboration:** The seamless integration of Medalgnosis with Azure Logic App streamlines appointment booking and communication between patients and specialized doctors. This enhanced collaboration fosters better doctor-patient interactions and a smoother healthcare experience for all stakeholders.
 * **Public Health Awareness:** By providing comprehensive insights into brain tumors and their implications, Medalgnosis contributes to public health awareness. Increased understanding of brain health and the importance of early diagnosis may encourage more individuals to undergo regular screenings, promoting overall brain health and well-being.
