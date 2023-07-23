@@ -102,7 +102,7 @@ streamlit run about.py
 ```
 * Enjoy the app!
 
-## Demo Video Link :movie_camera: 
+## Demo Video Link :movie_camera: https://youtu.be/ZwpHzr9rOmI
 
 ## Website Link :globe_with_meridians: : https://medalgnosis.streamlit.app/
 
