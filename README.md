@@ -1,4 +1,4 @@
-# MedAlgnosis :pill: :computer:
+# MedAlgnosis: Tumor Teller :pill: :computer:
 <p align="center">
 <img src="https://ipfs.io/ipfs/bafybeibta4ewlense6kfwhkdct7rnucfiinqdf7ipxk2jzizwqdyxzfihm/20230723_043416_0000.png" width="250" alt="Logo" >
   </p>
